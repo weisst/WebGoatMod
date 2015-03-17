@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" language="java"
+<%@ page contentType="text/html; charset=UTF-8" language="java"
          errorPage=""%>
 <%@page import="org.owasp.webgoat.session.WebSession"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -58,7 +58,7 @@
 
 
 
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>WebGoat</title>
     </head>
 

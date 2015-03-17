@@ -1,5 +1,5 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
     
 <%@ page import="java.io.*, javax.xml.xpath.*, org.xml.sax.InputSource,org.w3c.dom.*,org.apache.ecs.html.* " %>  

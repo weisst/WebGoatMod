@@ -4,6 +4,7 @@ package org.owasp.webgoat.util;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
 import org.springframework.stereotype.Component;
 
 

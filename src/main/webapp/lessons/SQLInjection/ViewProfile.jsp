@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" language="java" 
+<%@ page contentType="text/html; charset=UTF-8" language="java" 
 	import="org.owasp.webgoat.session.*, org.owasp.webgoat.lessons.SQLInjection.SQLInjection" 
 	errorPage="" %>
 <%

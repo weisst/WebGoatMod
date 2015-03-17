@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" language="java" 
+<%@ page contentType="text/html; charset=UTF-8" language="java" 
 	import="java.util.*, org.owasp.webgoat.session.*, org.owasp.webgoat.lessons.CrossSiteScripting.CrossSiteScripting" 
 	errorPage="" %>
 <%

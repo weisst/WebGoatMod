@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" language="java" 
+<%@ page contentType="text/html; charset=UTF-8" language="java" 
          import="org.owasp.webgoat.session.*, org.owasp.webgoat.lessons.Category, org.owasp.webgoat.lessons.AbstractLesson, org.owasp.webgoat.util.*, java.util.*" 
          errorPage=""  %>
 <%
@@ -12,7 +12,7 @@
 <%@page import="org.owasp.webgoat.lessons.RandomLessonAdapter"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><%=currentLesson.getTitle()%></title>
         <link rel="stylesheet" href="css/webgoat.css" type="text/css" />
         <link rel="stylesheet" href="css/lesson.css" type="text/css" />

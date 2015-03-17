@@ -2,6 +2,7 @@ package org.owasp.webgoat.lessons;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.ElementContainer;
 import org.apache.ecs.StringElement;
@@ -59,6 +60,7 @@ public class HttpBasics extends LessonAdapter {
         StringBuffer person = null;
         try {
             ec.addElement(new BR());
+            System.out.println(new StringElement(getLabelManager().get("EnterYourName") + ": "));
             ec.addElement(new StringElement(getLabelManager().get("EnterYourName") + ": "));
 
             person = new StringBuffer(s.getParser().getStringParameter(PERSON, ""));
@@ -77,7 +79,6 @@ public class HttpBasics extends LessonAdapter {
         if (!person.toString().equals("") && getLessonTracker(s).getNumVisits() > 3) {
             makeSuccess(s);
         }
-
         return (ec);
     }
 

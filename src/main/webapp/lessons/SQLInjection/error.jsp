@@ -1,3 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" language="java" 
+<%@ page contentType="text/html; charset=UTF-8" language="java" 
 	errorPage="" %>
 <br><br><br>An error has occurred.

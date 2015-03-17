@@ -2,6 +2,7 @@ package org.owasp.webgoat.session;
 
 import java.io.PrintWriter;
 import java.util.Properties;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.HtmlColor;
 import org.apache.ecs.StringElement;
