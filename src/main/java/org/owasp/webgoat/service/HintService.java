@@ -30,7 +30,7 @@ public class HintService extends BaseService {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/hint.mvc", produces = "application/json")
+    @RequestMapping(value = "/hint.mvc", produces = "application/json;charset=UTF-8")
     public @ResponseBody
     List<Hint> showHint(HttpSession session) {
         List<Hint> listHints = new ArrayList<Hint>();
@@ -70,7 +70,7 @@ public class HintService extends BaseService {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/hint_mark_as_viewed.mvc", produces = "application/json", method = RequestMethod.POST)
+    @RequestMapping(value = "/hint_mark_as_viewed.mvc", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
     public @ResponseBody
     boolean markHintAsViewed(HttpSession session, @RequestBody Integer hintNumber) {
         if (hintNumber == null) {

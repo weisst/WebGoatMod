@@ -61,7 +61,7 @@ public class LessonMenuService extends BaseService {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/lessonmenu.mvc", produces = "application/json")
+    @RequestMapping(value = "/lessonmenu.mvc", produces = "application/json;charset=UTF-8")
     public @ResponseBody
     List<LessonMenuItem> showLeftNav(HttpSession session) {
         List<LessonMenuItem> menu = new ArrayList<LessonMenuItem>();

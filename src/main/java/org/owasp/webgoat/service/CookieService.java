@@ -54,7 +54,7 @@ public class CookieService extends BaseService {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/cookie.mvc", produces = "application/json")
+    @RequestMapping(value = "/cookie.mvc", produces = "application/json;charset=UTF-8")
     public @ResponseBody
     List<Cookie> showCookies(HttpSession session) {
         WebSession ws = getWebSession(session);

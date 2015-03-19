@@ -63,7 +63,6 @@ public class SourceService extends BaseService {
         if (source == null) {
             source = "No source listing found";
         }
-        System.out.println(source);
         return source;
         //SourceListing sl = new SourceListing();
         //sl.setSource(source);

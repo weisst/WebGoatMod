@@ -51,7 +51,7 @@ public class SolutionService extends BaseService {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/solution.mvc", produces = "text/html")
+    @RequestMapping(value = "/solution.mvc", produces = "text/html;charset=UTF-8")
     public @ResponseBody
     String showSolution(HttpSession session) {
         WebSession ws = getWebSession(session);

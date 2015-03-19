@@ -106,7 +106,7 @@ public class DOMInjection extends LessonAdapter
                 + "var keyField = document.getElementById('key');" + lineSep + "var url = '" + getLink()
                 + "&from=ajax&key=' + encodeURIComponent(keyField.value);" + lineSep
                 + "if (typeof XMLHttpRequest != 'undefined') {" + lineSep + "req = new XMLHttpRequest();" + lineSep
-                + "} else if (window.ActiveXObject) {" + lineSep + "req = new ActiveXObject('Microsoft.XMLHTTP');"
+                + "   } else if (window.ActiveXObject) {" + lineSep + "req = new ActiveXObject('Microsoft.XMLHTTP');"
                 + lineSep + "   }" + lineSep + "   req.open('GET', url, true);" + lineSep
                 + "   req.onreadystatechange = callback;" + lineSep + "   req.send(null);" + lineSep + "}" + lineSep
                 + "function callback() {" + lineSep + "    if (req.readyState == 4) { " + lineSep

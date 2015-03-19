@@ -18,7 +18,7 @@ public class LessonTitleService extends BaseService {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/lessontitle.mvc", produces = "application/html")
+    @RequestMapping(value = "/lessontitle.mvc", produces = "application/html;charset=UTF-8")
     public @ResponseBody
     String showPlan(HttpSession session) {
         WebSession ws = getWebSession(session);

@@ -46,8 +46,8 @@ Solution Steps:
 
 Repeat stage 1 and note that the function fails with a "Not authorized" message.
  Tom will be in the list again, because the DB is reset when lesson restarts.
- Adding the access check in the RoleBasedAccessControl:handleRequest() is putting the check in the “Controller”
- The access check can also be added to DeleteProfile.deleteEmployeeProfile(), which is putting the check in the “Business Function”
+ Adding the access check in the RoleBasedAccessControl:handleRequest() is putting the check in the  Controller 
+ The access check can also be added to DeleteProfile.deleteEmployeeProfile(), which is putting the check in the  Business Function 
 */
 
 public class RoleBasedAccessControl_i extends RoleBasedAccessControl

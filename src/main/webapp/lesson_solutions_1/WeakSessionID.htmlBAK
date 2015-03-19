@@ -5,7 +5,7 @@ xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 12">
 <meta name=Originator content="Microsoft Word 12">
@@ -680,7 +680,7 @@ request from the "Previous requests" drop-down box.<o:p></o:p></span></p>
 src="lesson_solutions/WeakSessionID_files/image021.jpg" v:shapes="Picture_x0020_786"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>1</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> WebScarabs SessionID Analysis<span
@@ -703,7 +703,7 @@ button on the bottom of the screen. A pop-up window must be shown like below.<o:
 src="lesson_solutions/WeakSessionID_files/image022.jpg" v:shapes="Picture_x0020_787"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>2</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> SessionID WEAKID discovered<span
@@ -711,7 +711,7 @@ style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
 
-<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>If you don’t
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>If you donï¿½t
 have a pop-up window with the Extracted Sessionids, you must edit the Request.
 You must delete the WEAKID value from the request. Without this cookie value,
 WebGoat will return a HTTP Header "Set-Cookie: WEAKID=value" so WebScarab
@@ -825,7 +825,7 @@ request in Crowbar:<o:p></o:p></span></p>
 src="lesson_solutions/WeakSessionID_files/image028.jpg" v:shapes="Picture_x0020_793"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>3</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> Crowbar<span style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
@@ -864,7 +864,7 @@ reply".<o:p></o:p></span></p>
 src="lesson_solutions/WeakSessionID_files/image029.jpg" v:shapes="Picture_x0020_794"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>4</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> Lesson 12 Completed<span style='font-family:

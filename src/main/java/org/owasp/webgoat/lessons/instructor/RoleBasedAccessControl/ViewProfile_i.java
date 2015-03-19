@@ -13,12 +13,12 @@ import org.owasp.webgoat.session.WebSession;
 /* STAGE 4 FIXES
 1. Find the code location where this flaw of directly retrieving the profile without data-level access control checking exists:
     public void handleRequest( WebSession s )
-    {   …
+    {    
         Employee employee = getEmployeeProfile(s, userId, employeeId);
-    … }
-    public Employee getEmployeeProfile(WebSession s, int employeeId, int subjectUserId) throws UnauthorizedException {  …
+      }
+    public Employee getEmployeeProfile(WebSession s, int employeeId, int subjectUserId) throws UnauthorizedException {   
         return getEmployeeProfile(s, employeeId, subjectUserId);
-    … }
+      }
 2. The solution requires a data-level access control check to ensure the user has the rights to access the data they are requesting.
     a. There is a common method you can take advantage of: 
             isAuthorizedForEmployee(s, userId, subjectUserId)

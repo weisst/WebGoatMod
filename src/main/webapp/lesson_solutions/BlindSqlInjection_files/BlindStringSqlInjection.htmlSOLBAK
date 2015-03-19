@@ -5,7 +5,7 @@ xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 12">
 <meta name=Originator content="Microsoft Word 12">
@@ -625,7 +625,7 @@ style='font-family:"Arial","sans-serif"'>General Goal(s): <o:p></o:p></span></b>
 
 <p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>The user
 should be able to view all records in the specified table.<span
-style='mso-spacerun:yes'>  </span>The user could add new records or modify
+style='mso-spacerun:yes'>ï¿½ </span>The user could add new records or modify
 existing records.<o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
@@ -746,7 +746,7 @@ then answer is no.<o:p></o:p></span></p>
 src="lesson_solutions/BlindSqlInjection_files/image013.jpg" v:shapes="Picture_x0020_1419"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>1</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> Lesson 16<span style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
@@ -767,7 +767,7 @@ character is bigger then the value you get an invalid account error message.<o:p
 src="lesson_solutions/BlindSqlInjection_files/image014.jpg" v:shapes="Picture_x0020_1420"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>2</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> Invalid account number<span style='font-family:
@@ -793,7 +793,7 @@ userid=15613) , 1 , 1) ) = 74 );<o:p></o:p></span></p>
 src="lesson_solutions/BlindSqlInjection_files/image015.jpg" v:shapes="Picture_x0020_1421"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>3</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> First character<span style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
@@ -862,7 +862,7 @@ that you found is Joesph. Enter this in the text field to complete this lesson.<
 src="lesson_solutions/BlindSqlInjection_files/image017.jpg" v:shapes="Picture_x0020_1423"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>4</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> Enter the name Joesph<span style='font-family:
@@ -879,7 +879,7 @@ field-end'></span><![endif]--> Enter the name Joesph<span style='font-family:
 src="lesson_solutions/BlindSqlInjection_files/image018.jpg" v:shapes="Picture_x0020_1424"><![endif]></span></p>
 
 <p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+field-begin'></span><span style='mso-spacerun:yes'>ï¿½</span>SEQ Figure \* ARABIC
 <span style='mso-element:field-separator'></span><![endif]--><span
 style='mso-no-proof:yes'>5</span><!--[if supportFields]><span style='mso-element:
 field-end'></span><![endif]--> Lesson 16 Completed<span style='font-family:

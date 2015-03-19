@@ -323,7 +323,7 @@ public class ClientSideValidation extends SequentialLessonAdapter
 
         t.addElement(tr);
         tr = new TR();
-        tr.addElement(new TD().addElement("Hewlett-Packard - Pavilion Notebook with Intel� Centrino�"));
+        tr.addElement(new TD().addElement("Hewlett-Packard - Pavilion Notebook with Intel  Centrino "));
 
         tr.addElement(new TD()
                 .addElement(
