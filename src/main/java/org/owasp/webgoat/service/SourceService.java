@@ -31,8 +31,10 @@
 package org.owasp.webgoat.service;
 
 import javax.servlet.http.HttpSession;
+
 import static org.owasp.webgoat.LessonSource.END_SOURCE_SKIP;
 import static org.owasp.webgoat.LessonSource.START_SOURCE_SKIP;
+
 import org.owasp.webgoat.lessons.AbstractLesson;
 import org.owasp.webgoat.session.Course;
 import org.owasp.webgoat.session.WebSession;
@@ -53,7 +55,7 @@ public class SourceService extends BaseService {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/source.mvc", produces = "application/text")
+    @RequestMapping(value = "/source.mvc", produces = "application/text;charset=UTF-8")
     public @ResponseBody
     String showSource(HttpSession session) {
         WebSession ws = getWebSession(session);
@@ -61,6 +63,7 @@ public class SourceService extends BaseService {
         if (source == null) {
             source = "No source listing found";
         }
+        System.out.println(source);
         return source;
         //SourceListing sl = new SourceListing();
         //sl.setSource(source);

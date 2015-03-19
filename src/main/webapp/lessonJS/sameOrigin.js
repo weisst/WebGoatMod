@@ -95,7 +95,9 @@ function populate(url){
 		hiddenGoogleStatus.value = 1;
 	}
 	
-	if (hiddenWGStatus.value == 1 && hiddenGoogleStatus.value == 1){
+/*
+ * 阻止通过点击打开新页面	
+ 	if (hiddenWGStatus.value == 1 && hiddenGoogleStatus.value == 1){
 		document.form.submit();
-	}
+	}*/
 }

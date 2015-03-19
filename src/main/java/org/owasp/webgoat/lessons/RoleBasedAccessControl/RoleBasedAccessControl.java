@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.ecs.ElementContainer;
 import org.owasp.webgoat.lessons.Category;
 import org.owasp.webgoat.lessons.GoatHillsFinancial.DefaultLessonAction;
@@ -136,36 +137,71 @@ public class RoleBasedAccessControl extends GoatHillsFinancial
     public String getInstructions(WebSession s)
     {
         String instructions = "";
+        Boolean chinese = (s.getWebgoatContext().getDefaultLanguage().equalsIgnoreCase("zh") || s.getRequest().getLocale().toString().equalsIgnoreCase("zh_CN"));
 
         if (!getLessonTracker(s).getCompleted())
         {
             String stage = getStage(s);
             if (STAGE1.equals(stage))
             {
-                instructions = "Stage 1: Bypass Presentational Layer Access Control.<br />"
-                        + "As regular employee 'Tom', exploit weak access control to use the Delete function from the Staff List page. "
-                        + "Verify that Tom's profile can be deleted. "
-                        + "The passwords for users are their given names in lowercase (e.g. the password for Tom Cat is \"tom\").";
+            	if (chinese)
+            	{
+            		instructions = "Stage 1:Bypass Presentational Layer Access Control.<br />"
+            				+"作为普通员工”Tom”，可以利用访问控制漏洞，在员工的列表页面使用删除功能。"
+            				+"验证Tom可以删除个人资料。"
+            				+"用户的密码是小写的姓(例如Tom Cat的密码是：tom)。";
+            	}
+            	else
+            	{
+	                instructions = "Stage 1: Bypass Presentational Layer Access Control.<br />"
+	                        + "As regular employee 'Tom', exploit weak access control to use the Delete function from the Staff List page. "
+	                        + "Verify that Tom's profile can be deleted. "
+	                        + "The passwords for users are their given names in lowercase (e.g. the password for Tom Cat is \"tom\").";
+            	}
             }
             else if (STAGE2.equals(stage))
             {
-                instructions = "Stage 2: Add Business Layer Access Control.<br><br />"
-                        + "<b><font color=\"blue\"> THIS LESSON ONLY WORKS WITH THE DEVELOPER VERSION OF WEBGOAT</font></b><br /><br />"
-                        + "Implement a fix to deny unauthorized access to the Delete function. "
-                        + "To do this, you will have to alter the WebGoat code. "
-                        + "Once you have done this, repeat stage 1 and verify that access to DeleteProfile functionality is properly denied.";
+            	if (chinese)
+            	{
+            		instructions = "Stage 2:Add Business Layer Access Control.<br><br />"
+            				+"修复未经授权的操作删除个人资料的功能，在Stage 2中再次重复Stage 1步骤中的删除功能，将无法删除个人资料。";
+            	}
+            	else
+            	{
+	                instructions = "Stage 2: Add Business Layer Access Control.<br><br />"
+	                        + "<b><font color=\"blue\"> THIS LESSON ONLY WORKS WITH THE DEVELOPER VERSION OF WEBGOAT</font></b><br /><br />"
+	                        + "Implement a fix to deny unauthorized access to the Delete function. "
+	                        + "To do this, you will have to alter the WebGoat code. "
+	                        + "Once you have done this, repeat stage 1 and verify that access to DeleteProfile functionality is properly denied.";
+            	}
             }
             else if (STAGE3.equals(stage))
             {
+            	if (chinese)
+            	{
+            		instructions = "Stage 3:Breaking Data Layer Access Control.<br><br />"
+            				+"Tom 是一名普通的员工，但是利用访问控制漏洞，可以查看其他人员的个人资料，我们来验证下。";
+            	}
+            	else
+            	{
                 instructions = "Stage 3: Breaking Data Layer Access Control.<br />"
                         + "As regular employee 'Tom', exploit weak access control to View another employee's profile. Verify the access.";
+            	}
             }
             else if (STAGE4.equals(stage))
             {
+            	if (chinese)
+            	{
+            		instructions = "Stage 4:Add Data Layer Access Control.<br><br />"
+            				+"修复Stage 3中访问未授权的数据bug，如果再重复Stage 3中的攻击，将会攻击失效。";
+            	}
+            	else
+            	{
                 instructions = "Stage 4: Add Data Layer Access Control.<br><br />"
                         + "<b><font color=\"blue\"> THIS LESSON ONLY WORKS WITH THE DEVELOPER VERSION OF WEBGOAT</font></b><br /><br />"
                         + "Implement a fix to deny unauthorized access to this data. "
                         + "Once you have done this, repeat stage 3, and verify that access to other employee's profiles is properly denied.";
+            	}
             }
         }
 

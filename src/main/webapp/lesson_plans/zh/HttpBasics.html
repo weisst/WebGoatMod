@@ -1,0 +1,25 @@
+<div align="Center"> 
+<p><b>Lesson Plan Title:</b> Http Basics </p>
+ </div>
+ 
+<p><b>Concept / Topic To Teach:</b> </p>
+ This lesson presents the basics for understanding the transfer of data between the browser and the web application.<br>
+<div align="Left"> 
+<p>
+<b>How HTTP works:</b>
+</p>
+All HTTP transactions follow the same general format. Each client request and server response has three parts: the request or response line, a header section and the entity body. The client initiates a transaction as follows: <br>
+<br>
+ The client contacts the server and sends a document request <br>
+</div>
+  <br>
+<ul>GET /index.html?param=value HTTP/1.0</ul>
+ Next, the client sends optional header information to inform the server of its configuration and the document formats it will accept.<br>
+ <br>
+<ul>User-Agent: Mozilla/4.06 Accept: image/gif,image/jpeg, */*</ul>
+After sending the request and headers, the client may send additional data. This data is mostly used by CGI programs using the POST method.<br>
+<p><b>General Goal(s):</b> </p>
+<!-- Start Instructions -->
+在输入框中输入您的名字并按以下"Go!"按纽进行提交。服务器将接受请求,处理用户的输入并将提交的数据显示给用户,这是一个典型的处理HTTP请求的模型。<br/><br/>
+用户应该熟悉WebGoat的界面，通过点击相应的按钮可以获得相关信息,在页面的右侧显示了HTTP请求参数、HTTP请求所携带的Cookies,你也可以试着用OWASP Zed等代理工具观察HTTP请求，进行数据篡改等攻击行为。
+<!-- Stop Instructions -->

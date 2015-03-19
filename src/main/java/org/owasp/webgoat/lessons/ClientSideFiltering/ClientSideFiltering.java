@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.ElementContainer;
 import org.apache.ecs.html.A;
@@ -359,14 +360,22 @@ public class ClientSideFiltering extends SequentialLessonAdapter
     public String getInstructions(WebSession s)
     {
         String instructions = "";
+        Boolean chinese = (s.getWebgoatContext().getDefaultLanguage().equalsIgnoreCase("zh") || s.getRequest().getLocale().toString().equalsIgnoreCase("zh_CN"));
 
         if (getLessonTracker(s).getStage() == 1)
         {
+        	if (chinese)
+        	{
+        		instructions = "STAGE 1:\t你是Moe Stooge，你有权限可以查看到除了CEO Neville Bartholomew，其它所有员工的薪水信息；你可以试着找出CEO的薪水信息。";
+        	}
+        	else
+        	{
             instructions = "STAGE 1:\tYou are Moe Stooge, CSO of Goat Hills Financial. "
                     + "You have access to everyone in the company's information, except the CEO, "
                     + "Neville Bartholomew.  Or at least you shouldn't have access to the CEO's information."
                     + "  For this exercise, "
                     + "examine the contents of the page to see what extra information you can find.";
+        	}
         }
         else if (getLessonTracker(s).getStage() == 2)
         {

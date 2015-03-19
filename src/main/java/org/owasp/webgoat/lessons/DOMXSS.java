@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.ElementContainer;
 import org.apache.ecs.StringElement;
@@ -254,29 +255,67 @@ public class DOMXSS extends SequentialLessonAdapter
     public String getInstructions(WebSession s)
     {
         String instructions = "";
+    	Boolean chinese = (s.getWebgoatContext().getDefaultLanguage().equalsIgnoreCase("zh") || s.getRequest().getLocale().toString().equalsIgnoreCase("zh_CN"));
 
         if (getLessonTracker(s).getStage() == 1)
         {
-            instructions = "STAGE 1:\tFor this exercise, your mission is to deface this website using the image at the following location: <a href = '/WebGoat/images/logos/owasp.jpg'>OWASP IMAGE</a>";
+        	if (chinese)
+        	{
+                instructions = "STAGE 1:\t可以尝试在页面中插入一个IMG标签，图片地址: <a href = '/WebGoat/images/logos/owasp.jpg'>OWASP IMAGE</a>";
+        	}
+        	else
+        	{
+                instructions = "STAGE 1:\tFor this exercise, your mission is to deface this website using the image at the following location: <a href = '/WebGoat/images/logos/owasp.jpg'>OWASP IMAGE</a>";
+        	}
         }
         else if (getLessonTracker(s).getStage() == 2)
         {
+        	if (chinese)
+        	{
+                instructions = "STAGE 2:\t恭喜完成前一个任务，现在我们再次使用IMG标签，但是这里我们要执行JavaScript脚本，并弹出alert窗口 :)";
+        	}
+        	else
+        	{
             instructions = "STAGE 2:\tNow, try to create a JavaScript alert using the image tag";
+        	}
         }
         else if (getLessonTracker(s).getStage() == 3)
         {
+        	if (chinese)
+        	{
+                instructions = "STAGE 3:\t到达这里了？来，让我使用IFRAME标签来创建个IFRAME和执行 JavaScript alert :)";
+        	}
+        	else
+        	{
             instructions = "STAGE 3:\tNext, try to create a JavaScript alert using the IFRAME tag.";
+        	}
         }
         else if (getLessonTracker(s).getStage() == 4)
         {
+        	if (chinese)
+        	{
+                instructions = "STAGE 4:\t是不是感觉有些low？需要来点实际的攻击？OK，我们来创建一个钓鱼登陆框试试<br>"
+                        + "Please enter your password:&lt;BR&gt;&lt;input name=\"username\"/&gt;&lt;input type = \"password\" name=\"pass\"/&gt;&lt;button "
+                        + "onClick=\"javascript:alert('I have your username: ' + username .value +';your password: ' + pass.value);\"&gt;Submit&lt;/button&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;";
+           	}
+        	else
+        	{
             instructions = "STAGE 4:\tUse the following to create a fake login form:<br><br>"
                     + "Please enter your password:&lt;BR&gt;&lt;input type = \"password\" name=\"pass\"/&gt;&lt;button "
                     + "onClick=\"javascript:alert('I have your password: ' + pass.value);\"&gt;Submit&lt;/button&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;";
+        	}
         }
         else if (getLessonTracker(s).getStage() == 5)
         {
+        	if (chinese)
+        	{
+                instructions = "STAGE 5:\t怎么样~还是会迷惑人的吧 :)，一般解决XSS攻击，我们会对特殊符号进行HTMLentity encoding，来防御XSS攻击；不过在某些地方可是不够的哦  :)";
+        	}
+        	else
+        	{
             instructions = "STAGE 5:\tPerform client-side HTML entity encoding to mitigate the DOM XSS vulnerability. A utility method is provided for you in escape.js.";
-        }
+        	}
+       	}
         return (instructions);
     }
 

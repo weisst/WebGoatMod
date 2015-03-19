@@ -169,10 +169,18 @@ public class SameOriginPolicyProtection extends LessonAdapter
 
     public String getInstructions(WebSession s)
     {
-        String instructions = "This exercise demonstrates the "
-                + "Same Origin Policy Protection.  XHR requests can only be passed back to "
-                + " the originating server.  Attempts to pass data to a non-originating server " + " will fail.";
-
+    	String instructions = "";
+    	Boolean chinese = (s.getWebgoatContext().getDefaultLanguage().equalsIgnoreCase("zh") || s.getRequest().getLocale().toString().equalsIgnoreCase("zh_CN"));
+    	if (chinese)
+    	{
+    		 instructions = "在这里我们可以了解下同源策略，在Ajax中，利用XHR发送URL请求的时候，如果目标URL地址和当前浏览的URL不在同源(协议、域名、端口)下面的话，当前页面是获取不到请求返回的数据，只有在同源下面才可以获取到数据。";
+    	}
+    	else
+    	{
+	         instructions = "This exercise demonstrates the "
+	                + "Same Origin Policy Protection.  XHR requests can only be passed back to "
+	                + " the originating server.  Attempts to pass data to a non-originating server " + " will fail.";
+    	}
         return (instructions);
     }
 }

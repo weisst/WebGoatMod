@@ -139,7 +139,7 @@
                                         <button type="button" id="showSolutionBtn" class="btn btn-primary btn-xs" ng-click="showLessonSolution()">Solution</button>
                                         <button type="button" id="showPlanBtn" class="btn btn-primary btn-xs" ng-click="showLessonPlan()">Lesson Plan</button>
                                         <button type="button" id="showHintsBtn" ng-show="showHints" class="btn btn-primary btn-xs"  ng-click="viewHints()">Hints</button>
-                                        <button type="button" id="restartLessonBtn"  class="btn btn-xs"  ng-click="restartLesson()">Restart Lesson</button>
+                                        <button type="button" id="restartLessonBtn"  class="btn btn-xs btn-info"  ng-click="restartLesson()">Restart Lesson</button>
                                     </div>
                                 </div>
                                 <div class="lessonHelp" id="lesson_hint_row">

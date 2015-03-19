@@ -2,9 +2,11 @@ package org.owasp.webgoat;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.owasp.webgoat.lessons.AbstractLesson;
 import org.owasp.webgoat.session.Course;
 import org.owasp.webgoat.session.WebSession;
