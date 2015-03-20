@@ -173,8 +173,7 @@ public class MultiLevelLogin2 extends LessonAdapter
         {
             style sty = new style();
 
-            sty
-                    .addElement("#lesson_wrapper {height: 435px;width: 500px;}#lesson_header {background-image: url(lessons/DBSQLInjection/images/lesson1_header.jpg);width: 490px;padding-right: 10px;padding-top: 60px;background-repeat: no-repeat;}.lesson_workspace {background-image: url(lessons/DBSQLInjection/images/lesson1_workspace.jpg);width: 489px;height: 325px;padding-left: 10px;padding-top: 10px;background-repeat: no-repeat;}     .lesson_text {height: 240px;width: 460px;padding-top: 5px;}         #lesson_buttons_bottom {height: 20px;width: 460px;}         #lesson_b_b_left {width: 300px;float: left;}            #lesson_b_b_right input {width: 100px;float: right;}            .lesson_title_box {height: 20px;width: 420px;padding-left: 30px;}           .lesson_workspace { }           .lesson_txt_10 {font-family: Arial, Helvetica, sans-serif;font-size: 10px;}         .lesson_text_db {color: #0066FF}            #lesson_login {background-image: url(lessons/DBSQLInjection/images/lesson1_loginWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}           #lesson_login_txt {font-family: Arial, Helvetica, sans-serif;font-size: 12px;text-align: center;}           #lesson_search {background-image: url(lessons/DBSQLInjection/images/lesson1_SearchWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}");
+            sty.addElement("#lesson_wrapper {height: 435px;width: 500px;}#lesson_header {background-image: url(lessons/DBSQLInjection/images/lesson1_header.jpg);width: 490px;padding-right: 10px;padding-top: 60px;background-repeat: no-repeat;}.lesson_workspace {background-image: url(lessons/DBSQLInjection/images/lesson1_workspace.jpg);width: 489px;height: 325px;padding-left: 10px;padding-top: 10px;background-repeat: no-repeat;}     .lesson_text {height: 240px;width: 460px;padding-top: 5px;}         #lesson_buttons_bottom {height: 20px;width: 460px;}         #lesson_b_b_left {width: 300px;float: left;}            #lesson_b_b_right input {width: 100px;float: right;}        #lesson_submit input {margin-top: 30px;}            .lesson_title_box {height: 20px;width: 420px;padding-left: 30px;}           .lesson_workspace { }           .lesson_txt_10 {font-family: Arial, Helvetica, sans-serif;font-size: 10px;}         .lesson_text_db {color: #0066FF}            #lesson_login {background-image: url(lessons/DBSQLInjection/images/lesson1_loginWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}           #lesson_login_txt {font-family: Arial, Helvetica, sans-serif;font-size: 12px;text-align: center;}           #lesson_search {background-image: url(lessons/DBSQLInjection/images/lesson1_SearchWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}");
             ec.addElement(sty);
 
             Div wrapperDiv = new Div();
@@ -307,8 +306,10 @@ public class MultiLevelLogin2 extends LessonAdapter
 
         Table table = new Table();
         // table.setStyle(tableStyle);
-        table.addAttribute("align='center'", 0);
+        table.addAttribute("align", "center");
+        table.addAttribute("style", "margin-top: 10px;");
         TR tr1 = new TR();
+        tr1.addAttribute("id", "lesson_b_b_right");
         TD td1 = new TD();
         TD td2 = new TD();
         td1.addElement(new StringElement("Enter your name: "));
@@ -317,6 +318,7 @@ public class MultiLevelLogin2 extends LessonAdapter
         tr1.addElement(td2);
 
         TR tr2 = new TR();
+        tr2.addAttribute("id", "lesson_b_b_right");
         TD td3 = new TD();
         TD td4 = new TD();
         td3.addElement(new StringElement("Enter your password: "));
@@ -325,6 +327,7 @@ public class MultiLevelLogin2 extends LessonAdapter
         tr2.addElement(td4);
 
         TR tr3 = new TR();
+        tr3.addAttribute("id", "lesson_submit");
         TD td5 = new TD();
         td5.setColSpan(2);
         td5.setAlign("center");
