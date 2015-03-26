@@ -40,7 +40,7 @@ goat.utils = {
 
         // if the ajaxForm method was passed an Options Object with the dataType 
         // property set to 'json' then the first argument to the success callback 
-        // is the json data object returned by the server 
+        // is the json data object returned by the server
         if (goat.utils.debugFormSubmission) {
             alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
                     '\n\nThe output div should have already been updated with the responseText.');
@@ -48,6 +48,8 @@ goat.utils = {
         // update lesson cookies and params
         // make any embedded forms ajaxy
         goat.utils.showLessonCookiesAndParams();
+        //Fix the Cross-Site Scritping Stored XSS Attacks click href can't display content bug
+        goat.utils.showLessonContent(responseText);
         // forms and links are now hooked with each standard lesson render (see Java class Screen.getContent())
         // but these are safe to call twice
         goat.utils.makeFormsAjax();
@@ -88,6 +90,10 @@ goat.utils = {
         $.get(goatConstants.cookieService, {}, function(reply) {
             $("#lesson_cookies").html(reply);
         }, "html");
+    },
+    //Fix the Cross-Site Scritping Stored XSS Attacks click href can't display content bug
+    showLessonContent: function(content) {
+    	$('#lesson_content').html(content);
     },
     showLessonHints: function() {
         $('.lessonHelp').hide();
@@ -158,10 +164,10 @@ goat.utils = {
 				var url = $(el).attr('href');
 				$(el).unbind('click').attr('href','#').attr('link',url);
 				//TODO pull currentMenuId
-				$(el).click(function() {
+				$(el).click(function(event) {
 					event.preventDefault();
 					var _url = $(el).attr('link');
-					$.get(_url, {success:showResponse});
+					$.ajax({url: _url,success: goat.utils.showResponse});
 				}
 			);
          });
