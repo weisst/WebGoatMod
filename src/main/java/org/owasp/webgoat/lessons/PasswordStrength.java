@@ -188,10 +188,21 @@ public class PasswordStrength extends LessonAdapter
 
     public String getInstructions(WebSession s)
     {
-        String instructions = "The accounts of your web application are only as save as the passwords. "
+    	String instructions ="";
+    	Boolean chinese = (s.getWebgoatContext().getDefaultLanguage().equalsIgnoreCase("zh") || s.getRequest().getLocale().toString().equalsIgnoreCase("zh_CN"));
+    	if(chinese){
+    		instructions = "几乎每个网站都会有账户体系，有了账户体系，那么显然的就会有用户名和相应的密码，"
+    				+"很多用户喜欢使用长度为6位的密码，但是这种长度的密码很容易被攻破，"
+    				+"这个网站专门测试密码强度的，<a onclick=\"window.open(this.href,\'_blank\');return false;\" href=\"https://howsecureismypassword.net\">https://howsecureismypassword.net</a>."
+    				+"<br><b>在提到的网站上测试下面密码攻破所需要的时间！</b>";
+    	}
+    	else
+    	{
+         instructions = "The accounts of your web application are only as save as the passwords. "
                 + "For this exercise, your job is to test several passwords on <a onclick=\"window.open(this.href,\'_blank\');return false;\" href=\"https://howsecureismypassword.net\">https://howsecureismypassword.net</a>. "
                 + " You must test all 6 passwords at the same time...<br>"
                 + "<b> On your applications you should set good password requirements! </b>";
+    	}
         return (instructions);
     }
     

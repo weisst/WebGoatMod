@@ -32,7 +32,9 @@ package org.owasp.webgoat.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
 import org.owasp.webgoat.lessons.AbstractLesson;
 import org.owasp.webgoat.lessons.Category;
 import org.owasp.webgoat.lessons.RandomLessonAdapter;
@@ -53,81 +55,91 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LessonMenuService extends BaseService {
 
-    private static final Logger logger = LoggerFactory.getLogger(LessonMenuService.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(LessonMenuService.class);
 
-    /**
-     * Returns the lesson menu which is used to build the left nav
-     *
-     * @param session
-     * @return
-     */
-    @RequestMapping(value = "/lessonmenu.mvc", produces = "application/json;charset=UTF-8")
-    public @ResponseBody
-    List<LessonMenuItem> showLeftNav(HttpSession session) {
-        List<LessonMenuItem> menu = new ArrayList<LessonMenuItem>();
-        WebSession ws = getWebSession(session);
-        // Get the categories, these are the main menu items
-        Course course = ws.getCourse();
-        List<Category> categories = course.getCategories();
+	/**
+	 * Returns the lesson menu which is used to build the left nav
+	 *
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/lessonmenu.mvc", produces = "application/json;charset=UTF-8")
+	public @ResponseBody List<LessonMenuItem> showLeftNav(HttpSession session) {
+		List<LessonMenuItem> menu = new ArrayList<LessonMenuItem>();
+		WebSession ws = getWebSession(session);
+		// Get the categories, these are the main menu items
+		Course course = ws.getCourse();
+		List<Category> categories = course.getCategories();
 
-        for (Category category : categories) {
-            LessonMenuItem categoryItem = new LessonMenuItem();
-            categoryItem.setName(category.getName());
-            categoryItem.setType(LessonMenuItemType.CATEGORY);
-            // check for any lessons for this category
-            List<AbstractLesson> lessons = ws.getLessons(category);
-            String role = ws.getRole();
-            logger.info("Role: " + role);
-            for (AbstractLesson lesson : lessons) {
-                LessonMenuItem lessonItem = new LessonMenuItem();
-                lessonItem.setName(lesson.getTitle());
-                lessonItem.setLink(lesson.getLink());
-                lessonItem.setType(LessonMenuItemType.LESSON);
-                if (lesson.isCompleted(ws)) {
-                    lessonItem.setComplete(true);
-                }
-                /* @TODO - do this in a more efficient way 
-                 if (lesson.isAuthorized(ws, role, WebSession.SHOWHINTS)) {
-                 lessonItem.setShowHints(true);
-                 }
+		for (Category category : categories) {
+			LessonMenuItem categoryItem = new LessonMenuItem();
+			categoryItem.setName(category.getName());
+			categoryItem.setType(LessonMenuItemType.CATEGORY);
+			// check for any lessons for this category
+			List<AbstractLesson> lessons = ws.getLessons(category);
+			String role = ws.getRole();
+			logger.info("Role: " + role);
+			for (AbstractLesson lesson : lessons) {
+				LessonMenuItem lessonItem = new LessonMenuItem();
+				lessonItem.setName(lesson.getTitle());
+				lessonItem.setLink(lesson.getLink());
+				lessonItem.setType(LessonMenuItemType.LESSON);
+				if (lesson.isCompleted(ws)) {
+					lessonItem.setComplete(true);
+				}
+				/*
+				 * @TODO - do this in a more efficient way if
+				 * (lesson.isAuthorized(ws, role, WebSession.SHOWHINTS)) {
+				 * lessonItem.setShowHints(true); }
+				 * 
+				 * if (lesson.isAuthorized(ws, role, WebSession.SHOWSOURCE)) {
+				 * lessonItem.setShowSource(true); }
+				 */
+				// special handling for challenge role
+				if (Category.CHALLENGE.equals(lesson.getCategory())) {
+					lessonItem.setShowHints(lesson
+							.isAuthorized(ws, AbstractLesson.CHALLENGE_ROLE,
+									WebSession.SHOWHINTS));
+					lessonItem.setShowSource(lesson
+							.isAuthorized(ws, AbstractLesson.CHALLENGE_ROLE,
+									WebSession.SHOWHINTS));
+				}
 
-                 if (lesson.isAuthorized(ws, role, WebSession.SHOWSOURCE)) {
-                 lessonItem.setShowSource(true);
-                 }
-                 */
-                // special handling for challenge role
-                if (Category.CHALLENGE.equals(lesson.getCategory())) {
-                    lessonItem.setShowHints(lesson.isAuthorized(ws, AbstractLesson.CHALLENGE_ROLE, WebSession.SHOWHINTS));
-                    lessonItem.setShowSource(lesson.isAuthorized(ws, AbstractLesson.CHALLENGE_ROLE, WebSession.SHOWHINTS));
-                }
+				if (lessonItem.getName()
+						.equalsIgnoreCase("Multi Level Login 1")) {
+					categoryItem.insertChild(lessonItem);
+				} else {
+					categoryItem.addChild(lessonItem);
+				}
+				// Does the lesson have stages
+				if (lesson instanceof RandomLessonAdapter) {
+					RandomLessonAdapter rla = (RandomLessonAdapter) lesson;
+					String[] stages = rla.getStages();
+					if (stages != null) {
+						String lessonLink = lesson.getLink();
+						int stageIdx = 1;
+						for (String stage : stages) {
+							LessonMenuItem stageItem = new LessonMenuItem();
+							stageItem.setName("Stage " + stageIdx + ": "
+									+ stage);
+							// build the link for the stage
+							String stageLink = lessonLink + "&stage="
+									+ stageIdx;
+							stageItem.setLink(stageLink);
+							stageItem.setType(LessonMenuItemType.STAGE);
+							if (rla.isStageComplete(ws, stage)) {
+								stageItem.setComplete(true);
+							}
+							lessonItem.addChild(stageItem);
+							stageIdx++;
+						}
+					}
+				}
+			}
+			menu.add(categoryItem);
+		}
+		return menu;
 
-                categoryItem.addChild(lessonItem);
-                // Does the lesson have stages
-                if (lesson instanceof RandomLessonAdapter) {
-                    RandomLessonAdapter rla = (RandomLessonAdapter) lesson;
-                    String[] stages = rla.getStages();
-                    if (stages != null) {
-                        String lessonLink = lesson.getLink();
-                        int stageIdx = 1;
-                        for (String stage : stages) {
-                            LessonMenuItem stageItem = new LessonMenuItem();
-                            stageItem.setName("Stage " + stageIdx + ": " + stage);
-                            // build the link for the stage
-                            String stageLink = lessonLink + "&stage=" + stageIdx;
-                            stageItem.setLink(stageLink);
-                            stageItem.setType(LessonMenuItemType.STAGE);
-                            if (rla.isStageComplete(ws, stage)) {
-                                stageItem.setComplete(true);
-                            }
-                            lessonItem.addChild(stageItem);
-                            stageIdx++;
-                        }
-                    }
-                }
-            }
-            menu.add(categoryItem);
-        }
-        return menu;
-
-    }
+	}
 }

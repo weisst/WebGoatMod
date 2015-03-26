@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.ElementContainer;
 import org.apache.ecs.StringElement;
@@ -264,6 +265,7 @@ public class StoredXss extends LessonAdapter {
 
         TD item2 = new TD();
         TextArea ta = new TextArea(MESSAGE, 5, 60);
+        ta.addAttribute("style", "width: 294px; height: 118px;");
         item2.addElement(ta);
         row2.addElement(item2);
         t.addElement(row1);

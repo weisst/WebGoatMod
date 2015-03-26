@@ -173,7 +173,7 @@ public class MultiLevelLogin2 extends LessonAdapter
         {
             style sty = new style();
 
-            sty.addElement("#lesson_wrapper {height: 435px;width: 500px;}#lesson_header {background-image: url(lessons/DBSQLInjection/images/lesson1_header.jpg);width: 490px;padding-right: 10px;padding-top: 60px;background-repeat: no-repeat;}.lesson_workspace {background-image: url(lessons/DBSQLInjection/images/lesson1_workspace.jpg);width: 489px;height: 325px;padding-left: 10px;padding-top: 10px;background-repeat: no-repeat;}     .lesson_text {height: 240px;width: 460px;padding-top: 5px;}         #lesson_buttons_bottom {height: 20px;width: 460px;}         #lesson_b_b_left {width: 300px;float: left;}            #lesson_b_b_right input {width: 100px;float: right;}        #lesson_submit input {margin-top: 30px;}            .lesson_title_box {height: 20px;width: 420px;padding-left: 30px;}           .lesson_workspace { }           .lesson_txt_10 {font-family: Arial, Helvetica, sans-serif;font-size: 10px;}         .lesson_text_db {color: #0066FF}            #lesson_login {background-image: url(lessons/DBSQLInjection/images/lesson1_loginWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}           #lesson_login_txt {font-family: Arial, Helvetica, sans-serif;font-size: 12px;text-align: center;}           #lesson_search {background-image: url(lessons/DBSQLInjection/images/lesson1_SearchWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}");
+            sty.addElement("#lesson_password_tan input {width: 100px; margin-top: 20px; margin-left: 10px;}        #lesson_wrapper {height: 435px;width: 500px;}#lesson_header {background-image: url(lessons/DBSQLInjection/images/lesson1_header.jpg);width: 490px;padding-right: 10px;padding-top: 60px;background-repeat: no-repeat;}.lesson_workspace {background-image: url(lessons/DBSQLInjection/images/lesson1_workspace.jpg);width: 489px;height: 325px;padding-left: 10px;padding-top: 10px;background-repeat: no-repeat;}     .lesson_text {height: 240px;width: 460px;padding-top: 5px;}         #lesson_buttons_bottom {height: 20px;width: 460px;}         #lesson_b_b_left {width: 300px;float: left;}            #lesson_b_b_right input {width: 100px;float: right;}        #lesson_submit input {margin-top: 30px;}            .lesson_title_box {height: 20px;width: 420px;padding-left: 30px;}           .lesson_workspace { }           .lesson_txt_10 {font-family: Arial, Helvetica, sans-serif;font-size: 10px;}         .lesson_text_db {color: #0066FF}            #lesson_login {background-image: url(lessons/DBSQLInjection/images/lesson1_loginWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}           #lesson_login_txt {font-family: Arial, Helvetica, sans-serif;font-size: 12px;text-align: center;}           #lesson_search {background-image: url(lessons/DBSQLInjection/images/lesson1_SearchWindow.jpg);height: 124px;width: 311px;background-repeat: no-repeat;padding-top: 30px;margin-left: 80px;margin-top: 50px;text-align: center;}");
             ec.addElement(sty);
 
             Div wrapperDiv = new Div();
@@ -361,10 +361,12 @@ public class MultiLevelLogin2 extends LessonAdapter
         loginDiv.setID("lesson_login");
 
         Table table = new Table();
-        table.addAttribute("align='center'", 0);
+        table.addAttribute("align'", "center");
         TR tr1 = new TR();
         TD td1 = new TD();
+        td1.addAttribute("style", "padding-top: 20px;text-align:left;padding-left: 50px;");
         TD td2 = new TD();
+        td2.addAttribute("id", "lesson_password_tan");
         td1.addElement(new StringElement("Enter TAN  #" + tanNr + ": "));
         td2.addElement(new Input(Input.TEXT, TAN));
         tr1.addElement(td1);
@@ -786,15 +788,22 @@ public class MultiLevelLogin2 extends LessonAdapter
     public String getInstructions(WebSession s)
     {
         String instructions = "";
+        Boolean chinese = (s.getWebgoatContext().getDefaultLanguage().equalsIgnoreCase("zh") || s.getRequest().getLocale().toString().equalsIgnoreCase("zh_CN"));
+        if(chinese)
+        {
+        	instructions ="攻击者成功的获取了身份为Joe的用户名和密码，通过Joe身份可以访问\"财务\"系统，攻击者的目标是获取Jane的账单记录，用户名<b>Joe</b>的密码是 <b>banana</b>。下面是Joe的TANS： <br>";
+        }
+        else
+        {
+            instructions = "You are an attacker called Joe. You have a valid account by webgoat financial. Your goal is to log in as "
+                    + "Jane. Your username is <b>Joe</b> and your password is <b>banana</b>. This are your TANS: <br>";
 
-        instructions = "You are an attacker called Joe. You have a valid account by webgoat financial. Your goal is to log in as "
-                + "Jane. Your username is <b>Joe</b> and your password is <b>banana</b>. This are your TANS: <br>"
-                + "Tan #1 = 15161<br>"
+        }
+        instructions = instructions  + "Tan #1 = 15161<br>"
                 + "Tan #2 = 4894<br>"
                 + "Tan #3 = 18794<br>"
                 + "Tan #4 = 1564<br>"
                 + "Tan #5 = 45751<br>";
-
         return (instructions);
     }
 

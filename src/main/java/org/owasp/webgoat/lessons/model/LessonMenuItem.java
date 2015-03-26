@@ -92,6 +92,10 @@ public class LessonMenuItem {
     public void addChild(LessonMenuItem child) {
         children.add(child);
     }
+    
+    public void insertChild(LessonMenuItem child) {
+        children.add(1, child);
+    }
 
     @Override
     public String toString() {

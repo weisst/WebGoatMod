@@ -193,6 +193,7 @@ public class CSRF extends LessonAdapter
 
         TD item2 = new TD();
         TextArea ta = new TextArea(MESSAGE, 12, 60);
+        ta.addAttribute("style", "width: 294px; height: 118px;");
         ta.addAttribute("wrap", "soft");
         item2.addElement(ta);
         row2.addElement(item2);
