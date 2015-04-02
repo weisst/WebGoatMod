@@ -3,6 +3,7 @@ package org.owasp.webgoat.lessons;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.html.A;
 import org.apache.ecs.html.IMG;
@@ -156,9 +157,19 @@ public class FailOpenAuthentication extends WeakAuthenticationCookie
      */
     public String getInstructions(WebSession s)
     {
-        return "Due to an error handling problem in the authentication mechanism, it is possible to authenticate "
-                + "as the 'webgoat' user without entering a password.  Try to login as the webgoat user without "
-                + "specifying a password.";
+        Boolean chinese = (s.getWebgoatContext().getDefaultLanguage().equalsIgnoreCase("zh") || s.getRequest().getLocale().toString().equalsIgnoreCase("zh_CN"));
+        String instructions = "";
+        if (chinese)
+        {
+        	instructions = "代码中我们经常会有容错(try……catch……)，来捕获程序的异常，有时候处理捕获到的异常，如果处理不当会产生新的漏洞，"
+        								+"试试以webgoat用户名进行登陆，在登陆的时候不提供密码尝试看看 : )";
+        }else
+        {
+        	instructions = "Due to an error handling problem in the authentication mechanism, it is possible to authenticate "
+                    + "as the 'webgoat' user without entering a password.  Try to login as the webgoat user without "
+                    + "specifying a password.";
+        }
+        return instructions;
     }
 
     private final static Integer DEFAULT_RANKING = new Integer(20);

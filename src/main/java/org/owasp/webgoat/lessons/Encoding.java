@@ -13,10 +13,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEParameterSpec;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.ElementContainer;
 import org.apache.ecs.html.A;
@@ -101,7 +103,7 @@ public class Encoding extends LessonAdapter
 
         byte[] b = decoder.decodeBuffer(str);
 
-        return (new String(b));
+        return (new String(b,"UTF-8"));
     }
 
     /**
@@ -222,7 +224,7 @@ public class Encoding extends LessonAdapter
 
             t.setWidth("100%");
 
-            t.setBorder(0);
+            t.setBorder(5);
 
             t.setCellSpacing(1);
 

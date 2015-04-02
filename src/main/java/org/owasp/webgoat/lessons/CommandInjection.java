@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
+
 import org.apache.ecs.Element;
 import org.apache.ecs.ElementContainer;
 import org.apache.ecs.StringElement;
@@ -226,7 +227,7 @@ public class CommandInjection extends LessonAdapter
         {
             makeSuccess(s);
         }
-
+        
         return (er.toString());
     }
 
@@ -248,7 +249,7 @@ public class CommandInjection extends LessonAdapter
         {
             makeSuccess(s);
         }
-
+        
         return (er.toString());
     }
 
