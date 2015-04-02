@@ -1,0 +1,59 @@
+<!-- Start Instructions -->
+<h1>如何使用WebGoat</h1>
+<p>
+让我们来大致了解下WebGoat。<br> 
+</p>
+<h2>运行环境</h2>
+<p>
+WebGoat默认是部署在Apache Tomcat上的应用，不过也支持很多其它的服务。当我们启动应用后，他是一个localhost的应用，当然我们可以通过修改配置文件，指定到我们想要的地址。</p>
+
+<h2>熟悉WebGoat界面</h2>
+<p>
+<img src="images/introduction/interface.png"><br><br>
+1. WebGoat中拥有的课程类目，我们可以点击类目，选择具体的课程学习。<br>
+2. 点击这里将会显示实现当前课程的Java源码。<br>
+3. 点击这里将会显示如何完成当前课程的方法。<br>
+4. 点击这里将会当前课程的目的和目标。<br>
+5. 点击这里将会获取到完成当前课程的提示。<br>
+6. 这里会显示HTTP的请求数据。<br>
+7. 如果我们想重新学习当前课程，点击这里即可。</p>
+<h2>完成课程</h2>
+<p>
+总是会从课程描述开始获取信息，然后试图完成课程，如果遇到困惑，可以使用提示。最后的提示是有可能是完成当前课程的解决方案，如果你不能使用提示来完成课程，可以通过查看完整的、详细的解决方案来帮助你通过当前课程。</p>
+
+<h2>读取和修改Parameters/Cookies</h2>
+<p>
+为了读取和修改parameters和cookies，你也许会需要利用代理工具(OWASP ZAP、burpsuite)来拦截HTTP请求，修改HTTP请求数据，如果需要更多关于操作的过程，可以联系安全工程师，或者参与安全部的安全培训。
+</p>
+
+<h2>为WebGoat添加新用户</h2>
+<p>
+现在WebGoat的用户配置在spring-security.xml文件中，可以通过修改这个文件来改变用户
+<br/>
+  <pre>
+&lt;!-- Authentication Manager --&gt;
+&lt;authentication-manager alias="authenticationManager"&gt;
+  &lt;authentication-provider&gt;
+    &lt;user-service&gt;
+      &lt;user name="guest" password="guest" authorities="ROLE_WEBGOAT_USER" /&gt;
+      &lt;user name="webgoat" password="webgoat" authorities="ROLE_WEBGOAT_ADMIN" /&gt;
+      &lt;user name="server" password="server" authorities="ROLE_SERVER_ADMIN" /&gt;
+    &lt;/user-service&gt;
+  &lt;/authentication-provider&gt;
+&lt;/authentication-manager&gt;  
+  </pre>
+</p>
+<h2>增加用户</h2>
+<p>
+默认的WebGoat只有guest用户可以进行课程学习，如果在一台应用上有多个用户来进行学习，这时候我们就需要修改/WEB-INF/spring-security.xml文件，来增加用户。 <b>注意！！文件里面的密码是明文的，所以不要把常用密码保存在这里！</b>
+</p>
+<h3>增加新用户</h3>
+<p>
+增加新用户应该参考guest用户的配置，增加的新用户的角色必须和guet用户的角色一致，因为系统只允许guest角色的用户可以完成安全课程，新增加的用户名和密码不会显示在登陆页面。 
+在/WEB-INF/spring-security.xml文件中增加如下一行:
+</p>
+<pre>
+&lt;user name="guest2" password="guest2" authorities="ROLE_WEBGOAT_USER" /&gt;
+...
+</pre>
+<!-- Stop Instructions -->
