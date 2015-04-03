@@ -229,13 +229,14 @@ public class SilentTransactions extends LessonAdapter
         ec.addElement(new BR());
         ec.addElement(new BR());
 
-        ec.addElement(new PRE());
+//        ec.addElement(new PRE());
         Input b = new Input();
         b.setType(Input.BUTTON);
         b.setName("confirm");
         b.addAttribute("id", "confirm");
         b.setValue("Confirm");
         b.setOnClick("processData();");
+        b.setStyle("margin-bottom: 40px;");
         ec.addElement(b);
 
         ec.addElement(new BR());
