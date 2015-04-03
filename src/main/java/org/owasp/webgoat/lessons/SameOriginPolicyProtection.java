@@ -56,6 +56,7 @@ public class SameOriginPolicyProtection extends LessonAdapter
             urlArea.setRows(1);
             urlArea.setCols(60);
             urlArea.setWrap("SOFT");
+            urlArea.setStyle("width: 500px;");
             ec.addElement(urlArea);
 
             button b = new button();
@@ -78,6 +79,7 @@ public class SameOriginPolicyProtection extends LessonAdapter
             TextArea ta = new TextArea();
             ta.setName("responseArea");
             ta.setID("responseArea");
+            ta.setStyle("width: 500px;");
             ta.setCols(60);
             ta.setRows(4);
             ec.addElement(ta);
